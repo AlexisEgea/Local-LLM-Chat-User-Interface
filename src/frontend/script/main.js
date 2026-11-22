@@ -119,7 +119,8 @@ async function requestAssistantReply(pending, pendingMeta) {
   setBusy(true);
   try {
     const { model, settings } = getModelConfig();
-    const data = await sendChat(messages, model, settings, job.key);
+    const prompt = messages.slice(turnStartIndex(messages, messages.length - 1));
+    const data = await sendChat(prompt, model, settings, job.key);
     if (activeJob !== job) {
       return null;
     }
