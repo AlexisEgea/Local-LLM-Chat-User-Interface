@@ -7,7 +7,7 @@ const API_BASE_URL = window.location.origin;
 
 export const STOPPED_REPLY = "Generation was stopped by the user.";
 
-/** Send the full conversation and return the assistant reply. */
+/** Send the current prompt and return the assistant reply. */
 export async function sendChat(messages, model, settings, key) {
   const response = await fetch(`${API_BASE_URL}/api/chat`, {
     method: "POST",
